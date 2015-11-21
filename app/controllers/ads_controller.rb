@@ -43,8 +43,16 @@ class AdsController < ApplicationController
     redirect_to ads_path
   end
 
+  def image
+    content = @ad.image.read
+    if stale?(etag: content, last_modified: @ad.updated_at.utc, public: true)
+      send_data content, type: @ad.image.file.content_type, disposition: "inline"
+      expires_in 0, public: true
+    end
+  end
+
   private
     def ad_params
-      params.require(:ad).permit(:title, :text)
+      params.require(:ad).permit(:title, :text, :image, :image_cache)
     end
 end

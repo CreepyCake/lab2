@@ -8,5 +8,10 @@
   <%= @ad.text %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @ad.image.url if @ad.image.url %>
+</p>
+
 <%= link_to 'Edit', edit_ad_path(@ad) %>
 <%= link_to 'Back', ads_path %>

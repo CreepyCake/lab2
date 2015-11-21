@@ -1,28 +1,5 @@
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Фролов Александр, вариант 19: сайт объявлений о продаже квартир (возможность размещать объявления с указанием метро и количества комнат,
+                            загрузка фотографий, ограничение по форматам фотографий, поиск по метро или тексту в описании).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Ruby 2.2.3, Ruby on Rails 4.2.5, MongoDB 3.0.6
