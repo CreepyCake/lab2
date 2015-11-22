@@ -21,7 +21,7 @@ gem 'nokogiri', '>=1.6.7.rc'
 
 gem 'mongoid', '~> 5.0.0'
 
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid-grid_fs'
 

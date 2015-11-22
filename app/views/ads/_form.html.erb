@@ -38,12 +38,11 @@
     <fieldset>
       <legend>Image</legend>
       <p>
-        <%= image_tag @ad.image.url(:thumb) if @ad.image? %>
+        <%= image_tag @ad.image.url(:thumb) if @ad.image.url %>
       </p>
       <p>
         <%= f.label :image, 'Upload file: ' %><br>
         <%= f.file_field :image %>
-        <%= f.hidden_field :image_cache %>
       </p>
     </fieldset>
 
