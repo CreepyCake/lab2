@@ -13,7 +13,7 @@ gem 'jquery-rails'
 
 gem 'turbolinks'
 
-gem 'jbuilder', '~> 2.0'
+gem 'builder'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -21,13 +21,15 @@ gem 'nokogiri', '>=1.6.7.rc'
 
 gem 'mongoid', '~> 5.0.0'
 
-gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
-
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid-grid_fs'
 
 gem 'mini_magick', :require => 'mini_magick'
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'sunspot_mongo'
 
 group :development, :test do
   gem 'byebug'

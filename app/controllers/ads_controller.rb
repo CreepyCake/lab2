@@ -1,7 +1,10 @@
 class AdsController < ApplicationController
 
   def index
-    @ads = Ad.all
+    @search = Ad.solr_search do
+      fulltext params[:search]
+    end
+    @ads = @search.results
   end
 
   def show
@@ -51,8 +54,14 @@ class AdsController < ApplicationController
     end
   end
 
+  #def search
+  #  @ads = Ad.search(params[:search])
+
+    #redirect_to ads_path
+  #end
+
   private
     def ad_params
-      params.require(:ad).permit(:title, :text, :image, :image_cache)
+      params.require(:ad).permit(:title, :description, :metro_station, :rooms, :image, :image_cache)
     end
 end

@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :ads #do
-  #get '/uploads/grid/ad/image/:id/:filename' => 'gridfs#image'
+  resources :ads
 
-    #get :image
-  #end
-
-
- # root 'welcome#index'
+  root :to => 'ads#index'
 end

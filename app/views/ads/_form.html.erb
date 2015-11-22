@@ -14,6 +14,27 @@
         </div>
     <% end %>
 
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+    <p>
+      <%= f.label :metro_station %><br>
+      <%= f.text_field :metro_station %>
+    </p>
+
+    <p>
+      <%= f.label :rooms %><br>
+      <%= f.text_field :rooms %>
+    </p>
+
+
     <fieldset>
       <legend>Image</legend>
       <p>
@@ -25,16 +46,6 @@
         <%= f.hidden_field :image_cache %>
       </p>
     </fieldset>
-
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
-
-    <p>
-      <%= f.label :text %><br>
-      <%= f.text_area :text %>
-    </p>
 
     <p>
       <%= f.submit %>
