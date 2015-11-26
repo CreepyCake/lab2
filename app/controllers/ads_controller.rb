@@ -1,17 +1,23 @@
 class AdsController < ApplicationController
 
-  def index
-    @search = Ad.solr_search do
+
+  #all the actions for controller that will perform CRUD operations for ads
+
+  #only public methods can be actions and they must be placed before any of private methods
+  #and the usual order is: index, show, new, edit, create, update, destroy
+
+  def index #render index page
+    @search = Ad.solr_search do #searching for matches in database using sunspot
       fulltext params[:search]
     end
-    @ads = @search.results
+    @ads = @search.results #return results of search
   end
 
   def show
-    @ad = Ad.find(params[:id])
+    @ad = Ad.find(params[:id]) #to show certain ad, we need to find it in database by id
   end
 
-  def new
+  def new #this action renders a form called 'new' on ads/new route
     @ad = Ad.new
   end
 
@@ -19,13 +25,13 @@ class AdsController < ApplicationController
     @ad = Ad.find(params[:id])
   end
 
-  def create
-    @ad = Ad.new(ad_params)
+  def create #this action is called when 'submit' button is pressed
+    @ad = Ad.new(ad_params) #create a new document in Mongo using data from form
 
-    if  @ad.save
-      redirect_to ads_path
-    else
-      render 'new'
+    if  @ad.save #if successfully saved
+      redirect_to ads_path #redirect to index page with all the ads
+    else #otherwise
+      render 'new' #render same form for creating a new ad, but this time all error messages will be shown
     end
   end
 
@@ -47,6 +53,8 @@ class AdsController < ApplicationController
   end
 
   private
+  #method for permitting parameters to be used in controller actions
+  #it is for preventing mass assignment
     def ad_params
       params.require(:ad).permit(:title, :description, :metro_station, :rooms, :image)
     end

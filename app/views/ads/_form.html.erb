@@ -1,6 +1,8 @@
 <%= form_for @ad, :html => {:multipart => true} do |f| %>
 
-    <% if @ad.errors.any? %>
+    <%# check for errors and output error messages to user%>
+
+        <% if @ad.errors.any? %>
         <div id="error_explanation">
           <h2>
             <%= pluralize(@ad.errors.count, "error") %> prohibited
@@ -14,39 +16,42 @@
         </div>
     <% end %>
 
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
-
-    <p>
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </p>
-
-    <p>
-      <%= f.label :metro_station %><br>
-      <%= f.text_field :metro_station %>
-    </p>
-
-    <p>
-      <%= f.label :rooms %><br>
-      <%= f.text_field :rooms %>
-    </p>
-
-
-    <fieldset>
-      <legend>Image</legend>
+    <%# get data from user to create new ad or edit existing one %>
+    <div id="getting data from user">
       <p>
-        <%= image_tag @ad.image.url(:thumb) if @ad.image.url %>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
       </p>
-      <p>
-        <%= f.label :image, 'Upload file: ' %><br>
-        <%= f.file_field :image %>
-      </p>
-    </fieldset>
 
-    <p>
-      <%= f.submit %>
-    </p>
+      <p>
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </p>
+
+      <p>
+        <%= f.label :metro_station %><br>
+        <%= f.text_field :metro_station %>
+      </p>
+
+      <p>
+        <%= f.label :rooms %><br>
+        <%= f.text_field :rooms %>
+      </p>
+
+
+      <fieldset>
+        <legend>Image</legend>
+        <p>
+          <%= image_tag @ad.image.url(:thumb) if @ad.image.url %>
+        </p>
+        <p>
+          <%= f.label :image, 'Upload file: ' %><br>
+          <%= f.file_field :image %>
+        </p>
+      </fieldset>
+
+      <p>
+        <%= f.submit %>
+      </p>
+    </div>
 <% end %>

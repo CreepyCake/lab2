@@ -1,26 +1,29 @@
-<p>
-  <strong>Title:</strong>
-  <%= @ad.title %>
-</p>
+<%# just show all the fields of ad on page %>
+<div id="content of ad">
+  <p>
+    <strong>Title:</strong>
+    <%= @ad.title %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ad.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @ad.description %>
+  </p>
 
-<p>
-  <strong>Metro Station:</strong>
-  <%= @ad.metro_station %>
-</p>
+  <p>
+    <strong>Metro Station:</strong>
+    <%= @ad.metro_station %>
+  </p>
 
-<p>
-  <strong>Rooms:</strong>
-  <%= @ad.rooms %>
-</p>
+  <p>
+    <strong>Rooms:</strong>
+    <%= @ad.rooms %>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @ad.image.url if @ad.image.url %>
-</p>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @ad.image.url if @ad.image.url %>
+  </p>
+</div>
 
 <%= link_to 'Back', ads_path %>

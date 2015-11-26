@@ -1,5 +1,7 @@
 <h1>Listing ads</h1>
 
+<%# search field (when empty - gives list of all ads in database) %>
+
 <%= form_tag ads_path, :method => :get do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
@@ -9,28 +11,31 @@
 
 
 <% if @ads.length > 0 %>
-  <table>
-    <tr>
-      <th>Title</th>
-     <th>Description</th>
-     <th>Metro Station</th>
-     <th>Rooms</th>
-     <th>Image</th>
-     <th colspan="5"></th>
-   </tr>
+    <%# if there were ads matching search request - create table with them %>
+    <div id="table of ads">
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Metro Station</th>
+          <th>Rooms</th>
+          <th>Image</th>
+          <th colspan="5"></th>
+        </tr>
 
-    <% @ads.each do |ad| %>
-      <tr>
-        <td><%= ad.title %></td>
-        <td><%= ad.description %></td>
-        <td><%= ad.metro_station %></td>
-        <td><%= ad.rooms %></td>
-        <td><%= image_tag ad.image.url(:thumb) if ad.image.url %></td>
-        <td><%= link_to 'Show', ad_path(ad) %></td>
-      </tr>
-    <% end %>
-  </table>
-<% else %>
+        <% @ads.each do |ad| %>
+            <tr>
+              <td><%= ad.title %></td>
+              <td><%= ad.description %></td>
+              <td><%= ad.metro_station %></td>
+              <td><%= ad.rooms %></td>
+              <td><%= image_tag ad.image.url(:thumb) if ad.image.url %></td>
+              <td><%= link_to 'Show', ad_path(ad) %></td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+<% else %> <%# no matches in database %>
   <p>Sorry, nothing found</p>
 <% end %>
 
